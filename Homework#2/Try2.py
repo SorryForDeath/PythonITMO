@@ -49,7 +49,7 @@ def listCross(l):
         tempSet = tempSet & i
     return tempSet
 
-#Задание 6
+#Для 6 задание 
 def strWork(st):
     newStr = st.lower()
     newStr = re.sub(r'[^\w\s]', '', newStr)
