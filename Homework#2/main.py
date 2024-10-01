@@ -62,6 +62,28 @@ def strWork(st):
             dic[i] = 1
     return sorted(dic.items(), key=lambda x: x[1], reverse=True)
 
+#Для 7 задания
+def pack(items, W):
+    temp = dict()
+    weight = 0
+    price = 0
+    for i in items:
+        temp[i] = (items[i][1] / items[i][0])
+    temp = sorted(temp.items(), key=lambda x: x[1], reverse=True)
+    result = dict(temp)
+    for i in result:
+        result[i] = 0
+    i = 0
+    while weight <= W:
+        if weight + items[temp[i][0]][0] > W:
+            if i == len(items) - 1:
+                return [result, price]
+            i += 1
+            continue
+        weight += items[temp[i][0]][0]
+        price += temp[i][1]
+        result[temp[i][0]] += 1
+    return [result, price]
 
 if __name__ == "__main__":
     #Задание №1
@@ -101,3 +123,16 @@ if __name__ == "__main__":
     # Задание 6
     s = "Мистер и миссис Дурсль проживали в доме номер четыре по Тисовой улице и всегда с гордостью заявляли, что они, слава богу, абсолютно нормальные люди. Уж от кого-кого, а от них никак нельзя было ожидать, чтобы они попали в какую-нибудь странную или загадочную ситуацию. Мистер и миссис Дурсль весьма неодобрительно относились к любым странностям, загадкам и прочей ерунде."
     print(f"Задание №6\nФинальный словарь:\n{strWork(s)}")
+
+    # задание 7
+    items = {
+        "laptop": (3, 1500),
+        "camera": (1, 800),
+        "phone": (1, 600),
+        "watch": (0.5, 300),
+        "headphones": (0.2, 200),
+        "tablet": (2, 900),
+        "wallet": (0.1, 100)
+    }
+    n = float(input("Задание 7\nВведите число, которое будет обозначать количество киллограммов, которое может вынести вор\n"))
+    print(f"Общая цина вынесенных предметов:{pack(items, n)[1]}\nСписок вынесенных предметов:\n{pack(items, n)[0]}")
