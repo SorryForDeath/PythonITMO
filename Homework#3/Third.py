@@ -1,5 +1,5 @@
 from functools import reduce
-
+import re
 
 def is_prime(pr):
     if pr == 0 or pr == 1 or pr < 0:
@@ -14,6 +14,27 @@ def is_prime(pr):
 
 def own_map(some_list, func):
     return [func(i) for i in some_list]
+
+def str_things():
+    answer = {
+        "lines": 0,
+        "words": 0,
+        "symbols": 0
+    }
+    mx = ''
+    with open("zombie.txt") as g:
+        for line in g:
+            answer["lines"] += 1
+            ls = line.split(" ")
+            answer["words"] += len(ls)
+            for i in ls:
+                i = re.sub(r'[,.!?]', '', i)
+                if len(i) > len(mx):
+                    mx = i
+            les = ''.join(ls)
+            answer["symbols"] += len(les)
+    return answer, mx
+
 
 if __name__ == "__main__":
     #Задание №1
@@ -44,5 +65,6 @@ if __name__ == "__main__":
     print(f"Результат работы own_map (Проверяет каждое число списка на простоту): {own_map(a, lambda x: is_prime(x))}")
 
     #Задание №4
-    open("zombie.txt")
+    print(f'Задание №4:\n{str_things()[0]}\nСамое длинное слово: {str_things()[1]}, его длина: {len(str_things()[1])}')
+
 
