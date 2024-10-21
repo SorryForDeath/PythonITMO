@@ -145,10 +145,9 @@ class Soldier:
         else:
             print(f"Target is alive. Target's current HP is {health}")
 
-class Target(Soldier):
+class Target:
     __alive = True
     def __init__(self, healthPoints, range_from_enemy):
-        super().__init__(healthPoints)
         self.range_from_enemy = range_from_enemy
         self.healthPoints = healthPoints
 
@@ -210,7 +209,7 @@ while flag2:
                         print("Мда уж, что с тобой? Смени уже этот магазин")
 
         case '2':
-            started_target.aim()
+            started_soldier.aim()
         case _:
             print("Ты что это делаешь, солдат?! Ну-ка сосредоточься!")
 started_target.range_from_enemy = started_gun.range_of_weapon
@@ -220,7 +219,7 @@ while not started_target.Dead():
         case '1':
             started_soldier.fire(started_gun, started_target)
         case '2':
-            started_target.aim()
+            started_soldier.aim()
         case '3':
             started_soldier.reload(started_gun)
         case _:
