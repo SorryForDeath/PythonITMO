@@ -12,6 +12,7 @@ for i in a:
 sortedForBinary = dict(sorted(dictForBinary.items(), key=lambda x: x[1]))
 print(f'Отсортированный словарь:\n{sortedForBinary}')
 value = input("Какое слово ищем?\n")
+value = re.sub(r' ', '', value)
 low = 0
 high = len(a) - 1
 mid = len(a) // 2
