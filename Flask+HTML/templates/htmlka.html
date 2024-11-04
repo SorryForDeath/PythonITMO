@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сложение чисел</title>
+    <script>
+        async function calculateSum(event) {
+            event.preventDefault(); // Останавливаем отправку формы
+
+            // Получаем значения чисел из формы
+            const a = document.getElementById('a').value;
+            const b = document.getElementById('b').value;
+
+            // Отправляем POST-запрос к серверу
+            const response = await fetch('/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `a=${a}&b=${b}`
+            });
+
+            // Получаем результат и выводим на страницу
+            const result = await response.json();
+            document.getElementById('result').textContent = result.result !== undefined 
+                ? `Результат: ${result.result}` 
+                : `Ошибка: ${result.error}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Сложение чисел</h1>
+    <form onsubmit="calculateSum(event)">
+        <label for="a">Число a:</label>
+        <input type="number" id="a" name="a" required>
+        <br>
+        <label for="b">Число b:</label>
+        <input type="number" id="b" name="b" required>
+        <br>
+        <button type="submit">Сложить</button>
+    </form>
+    <p id="result"></p>
+</body>
+</html>
