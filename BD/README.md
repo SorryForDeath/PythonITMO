@@ -10,4 +10,5 @@
 2) Не смог установить MongoDB, возникла следующая ошибка при установке:
 
 **Ошибка при установке**
+
 ![Иллюстрация к проекту](https://github.com/SorryForDeath/PythonITMO/raw/main/BD/failed.png)
