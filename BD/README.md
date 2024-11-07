@@ -5,3 +5,9 @@
 
 **Результат работы pgAdmin4I**
 ![Иллюстрация к проекту](https://github.com/SorryForDeath/PythonITMO/raw/main/BD/pgAdmin.png)
+
+
+2) Не смог установить MongoDB, возникла следующая ошибка при установке:
+
+**Ошибка при установке**
+![Иллюстрация к проекту](https://github.com/SorryForDeath/PythonITMO/raw/main/BD/failed.png)
