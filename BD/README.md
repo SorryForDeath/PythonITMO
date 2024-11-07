@@ -12,3 +12,5 @@
 **Ошибка при установке**
 
 ![Иллюстрация к проекту](https://github.com/SorryForDeath/PythonITMO/raw/main/BD/failed.png)
+
+3) На clickhouse не хватило времени
